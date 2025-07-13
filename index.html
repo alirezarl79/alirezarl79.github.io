@@ -52,66 +52,70 @@
             font-size: 2em;
         }
 
-        /* استایل‌های اسلایدشو */
+        /* استایل‌های اسلایدشو - بهبود موقعیت دکمه‌ها */
         .slideshow-container {
             position: relative;
-            max-width: 700px; /* عرض حداکثری اسلایدشو */
+            max-width: 750px; /* افزایش جزئی عرض */
             margin: auto;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 12px; /* کمی گردتر */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* سایه عمیق‌تر */
             margin-bottom: 40px;
         }
         .mySlides {
-            display: none; /* به صورت پیش‌فرض مخفی */
+            display: none;
             width: 100%;
-            height: 400px; /* ارتفاع ثابت برای تصاویر اسلایدشو */
-            object-fit: cover; /* پر کردن کادر بدون بهم ریختن نسبت تصویر */
-            transition: opacity 0.5s ease-in-out; /* انیمیشن فید */
+            height: 450px; /* افزایش ارتفاع */
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;
         }
         .mySlides img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block; /* حذف فضای اضافه زیر تصویر */
+            display: block;
         }
-        /* دکمه‌های بعدی/قبلی */
+        /* دکمه‌های بعدی/قبلی - بهبود موقعیت و ظاهر */
         .prev, .next {
             cursor: pointer;
             position: absolute;
-            top: 50%;
+            top: 50%; /* وسط عمودی */
+            transform: translateY(-50%); /* تنظیم دقیق به مرکز */
             width: auto;
-            padding: 16px;
-            margin-top: -22px;
+            padding: 18px 12px; /* پدینگ بیشتر */
             color: white;
             font-weight: bold;
-            font-size: 30px;
+            font-size: 36px; /* بزرگتر */
             transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
             user-select: none;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 10; /* بالای تصاویر */
+            background-color: rgba(0,0,0,0.6); /* کمی تیره‌تر */
+            border-radius: 0 6px 6px 0; /* گوشه‌های گرد */
+            z-index: 10;
         }
         .next {
             right: 0;
-            border-radius: 3px 0 0 3px;
+            border-radius: 6px 0 0 6px;
+        }
+        .prev {
+            left: 0;
+            border-radius: 0 6px 6px 0; /* اصلاح برای دکمه قبلی */
         }
         .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.9); /* تیره‌تر هنگام هاور */
         }
         /* نقاط نشانگر اسلاید */
         .dots-container {
             text-align: center;
             padding: 20px 0 10px;
             background-color: #eee;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
         }
         .dot {
             cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 4px;
+            height: 16px; /* کمی بزرگتر */
+            width: 16px; /* کمی بزرگتر */
+            margin: 0 5px; /* فاصله بیشتر */
             background-color: #bbb;
             border-radius: 50%;
             display: inline-block;
@@ -119,6 +123,107 @@
         }
         .active-dot, .dot:hover {
             background-color: #717171;
+        }
+
+        /* Falling Leaves Effect */
+        .leaf-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* اجازه می‌دهد روی عناصر دیگر کلیک شود */
+            overflow: hidden; /* جلوگیری از اسکرول اضافی */
+            z-index: -1; /* پشت محتوای اصلی */
+        }
+
+        .leaf {
+            position: absolute;
+            width: 30px; /* اندازه برگ */
+            height: 30px;
+            background-color: #d2691e; /* رنگ پاییزی */
+            border-radius: 50%; /* برای شکل برگ (می‌توانید شکل‌های پیچیده‌تر با clip-path بسازید) */
+            opacity: 0; /* شروع با شفافیت 0 */
+            animation: fall linear infinite, sway ease-in-out infinite alternate; /* انیمیشن‌های سقوط و تاب خوردن */
+            transform-origin: 50% 50%;
+            /* برای تنوع در شکل برگ‌ها */
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* شکل الماس */
+        }
+
+        /* تنوع در رنگ‌ها و شکل‌های برگ */
+        .leaf:nth-child(2n) { background-color: #b8860b; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); } /* شش ضلعی */
+        .leaf:nth-child(3n) { background-color: #a0522d; border-radius: 40% 60% 70% 30% / 50% 50% 50% 50%; clip-path: circle(50% at 50% 50%); } /* دایره */
+        .leaf:nth-child(4n) { background-color: #8b0000; width: 25px; height: 25px; clip-path: polygon(0% 15%, 15% 0%, 100% 0%, 85% 15%, 100% 50%, 85% 85%, 100% 100%, 15% 100%, 0% 85%, 15% 50%); } /* ستاره */
+
+
+        /* Keyframe Animations */
+        @keyframes fall {
+            0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } /* سقوط به پایین صفحه و چرخش بیشتر */
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0px) rotate(0deg); }
+            33% { transform: translateX(30px) rotate(120deg); }
+            66% { transform: translateX(-30px) rotate(240deg); }
+            100% { transform: translateX(0px) rotate(360deg); }
+        }
+
+        /* تنظیمات انیمیشن برای هر برگ (برای تنوع) */
+        .leaf:nth-child(1) { left: 10%; animation-duration: 10s, 3s; animation-delay: 0s, 0s; }
+        .leaf:nth-child(2) { left: 20%; animation-duration: 12s, 4s; animation-delay: 2s, 1s; }
+        .leaf:nth-child(3) { left: 30%; animation-duration: 9s, 2.5s; animation-delay: 1s, 0.5s; }
+        .leaf:nth-child(4) { left: 40%; animation-duration: 11s, 3.5s; animation-delay: 3s, 1.5s; }
+        .leaf:nth-child(5) { left: 50%; animation-duration: 8s, 2s; animation-delay: 0.5s, 0s; }
+        .leaf:nth-child(6) { left: 60%; animation-duration: 13s, 4.5s; animation-delay: 4s, 2s; }
+        .leaf:nth-child(7) { left: 70%; animation-duration: 10s, 3s; animation-delay: 1.5s, 0.8s; }
+        .leaf:nth-child(8) { left: 80%; animation-duration: 11.5s, 3.2s; animation-delay: 2.5s, 1.2s; }
+        .leaf:nth-child(9) { left: 90%; animation-duration: 9.5s, 2.8s; animation-delay: 0s, 0.3s; }
+        .leaf:nth-child(10) { left: 5%; animation-duration: 14s, 3.8s; animation-delay: 5s, 2.5s; }
+        .leaf:nth-child(11) { left: 15%; animation-duration: 10s, 2.9s; animation-delay: 0.8s, 0.2s; }
+        .leaf:nth-child(12) { left: 25%; animation-duration: 12s, 3.7s; animation-delay: 3.5s, 1.8s; }
+
+
+        /* استایل برای بخش اطلاعات جدید */
+        .info-section {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: right;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* سایه ملایم‌تر */
+        }
+        .info-section h3 {
+            color: #34495e;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.05em;
+        }
+        .info-section ul li {
+            margin-bottom: 10px;
+            padding-right: 25px;
+            position: relative;
+        }
+        .info-section ul li::before {
+            content: '•';
+            color: #4CAF50;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+        .info-section ul li.rule::before {
+            content: '⛔️';
+            color: #e74c3c;
+            font-size: 1.1em; /* کمی بزرگتر برای بهتر دیده شدن */
+            top: 0px; /* تنظیم موقعیت عمودی */
         }
 
 
@@ -184,6 +289,21 @@
     </style>
 </head>
 <body>
+    <div class="leaf-container">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+
     <div class="header">
         <h1>به اقامتگاه عمو حسین خوش آمدید!</h1>
     </div>
@@ -195,41 +315,66 @@
         <h2>گالری تصاویر اقامتگاه</h2>
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <a href="(2).jpg" data-lity><img src="(2).jpg" alt="تصویری از نمای اقامتگاه عمو حسین"></a>
+                <a href="(2).jpg" data-lity><img src="(2).jpg" alt="نمای گسترده تراس و چشم‌انداز کوهستانی"></a>
             </div>
-
             <div class="mySlides fade">
-                <a href="(6).jpg" data-lity><img src="(6).jpg" alt="عکسی از فضای داخلی یا امکانات اقامتگاه"></a>
+                <a href="(1).jpg" data-lity><img src="(1).jpg" alt="نمایی نزدیک‌تر از تراس با پرده آبی"></a>
             </div>
-
             <div class="mySlides fade">
-                <a href="(9).jpg" data-lity><img src="(9).jpg" alt="نمایی از حیاط یا محیط بیرونی اقامتگاه"></a>
+                <a href="(5).jpg" data-lity><img src="(5).jpg" alt="فضای آشپزخانه با کابینت‌ها و یخچال"></a>
             </div>
-
             <div class="mySlides fade">
-                <a href="(12).jpg" data-lity><img src="(12).jpg" alt="منظره‌ای از طبیعت اطراف اقامتگاه"></a>
+                <a href="(8).jpg" data-lity><img src="(8).jpg" alt="سالن نشیمن با مبلمان، فرش و پنکه"></a>
             </div>
-
             <div class="mySlides fade">
-                <a href="(14).jpg" data-lity><img src="(14).jpg" alt="جزئیاتی از طراحی یا دکوراسیون داخلی"></a>
+                <a href="(9).jpg" data-lity><img src="(9).jpg" alt="نمایی دیگر از سالن نشیمن و درب ورودی"></a>
             </div>
-
             <div class="mySlides fade">
-                <a href="(16).jpg" data-lity><img src="(16).jpg" alt="یک نمای کلی دیگر از اقامتگاه"></a>
+                <a href="(10).jpg" data-lity><img src="(10).jpg" alt="سالن نشیمن با فرش، پنکه و بخاری هیزمی"></a>
+            </div>
+            <div class="mySlides fade">
+                <a href="(12).jpg" data-lity><img src="(12).jpg" alt="گوشه‌ای از سالن نشیمن با بخاری و کوسن‌ها"></a>
+            </div>
+            <div class="mySlides fade">
+                <a href="(14).jpg" data-lity><img src="(14).jpg" alt="اتاق خواب با تخت دو نفره و لوازم خواب"></a>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
-        <div class="dots-container">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
+        <div class="dots-container" id="dotsContainer">
+            </div>
+
+        <div class="info-section">
+            <h3>درباره اقامتگاه عمو حسین</h3>
+            <p>این خانه تک‌خوابه در **روستای جمشیدآباد** در فاصله حدود هشت کیلومتری شهر رستم آباد و حدود ۲۵ کیلومتری شهر رودبار واقع شده است.</p>
+            <ul>
+                <li>فاصله با شهر رستم‌آباد: حدود ۱۰ دقیقه</li>
+                <li>فاصله با شهر رودبار: حدود ۳۰ دقیقه</li>
+                <li>فاصله با تهران: حدود ۴ ساعت</li>
+                <li>مسیر خاکی تا اقامتگاه: حدود ۱۰۰ متر (بخش پایانی مسیر)</li>
+                <li>آب اقامتگاه از چشمه لوله‌کشی شده است.</li>
+                <li>تراس این اقامتگاه به دلیل قرار گرفتن در شیب، چشم‌انداز زیبای جنگل، سپیدرود و قله درفک را دارد.</li>
+                <li>از جمله مناطق گردشگری در نزدیک ویلا می‌توان به **آبشار جمشیدآباد** اشاره کرد که در فاصله حدود یک کیلومتری قرار دارد.</li>
+                <li>فاصله تا سوپرمارکت محلی: حدود یک کیلومتر</li>
+                <li>اقامتگاه فاقد پارکینگ اختصاصی است (می‌توانید خودرو را در نزدیکی اقامتگاه پارک کنید).</li>
+                <li>وضعیت اینترنت: 4G (محدوده پوشش‌دهی خوب)</li>
+                <li>آنتن‌دهی موبایل: مناسب</li>
+                <li>لوازم خواب برای **دو نفر** مهیا است. برای نفرات بیشتر، لطفاً وسایل خواب به همراه داشته باشید.</li>
+            </ul>
+            <p style="font-weight: bold; color: #e74c3c;">*توجه: به دلیل قرار گرفتن ویلا در منطقه جنگلی، بهتر است مایحتاج مورد نیاز خود را از شهر (رستم‌آباد یا رودبار) تهیه نمایید.</p>
         </div>
+
+        <div class="info-section">
+            <h3>قوانین و نکات مهم</h3>
+            <ul>
+                <li class="rule">برگزاری جشن مجاز نمی‌باشد.</li>
+                <li class="rule">برای افراد و گروه‌های مجردی، امکان رزرو وجود ندارد.</li>
+                <li class="rule">آوردن حیوان خانگی مجاز نمی‌باشد.</li>
+            </ul>
+        </div>
+
 
         <h2>اطلاعات تماس و رزرو</h2>
         <div class="contact-info">
@@ -257,24 +402,18 @@
 
     <script>
         let slideIndex = 1;
-        showSlides(slideIndex);
+        let autoSlideInterval; // برای نگهداری اینتروال اسلاید خودکار
 
-        // کنترل‌های بعدی/قبلی
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        // کنترل‌های نقطه
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
+        // تابع برای نمایش اسلایدها و به‌روزرسانی نقطه‌ها
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
+            let dotsContainer = document.getElementById("dotsContainer"); // کانتینر نقاط
+            let dots = dotsContainer.getElementsByClassName("dot");
+
             if (n > slides.length) {slideIndex = 1}
             if (n < 1) {slideIndex = slides.length}
+
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
@@ -284,6 +423,76 @@
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active-dot";
         }
+
+        // کنترل‌های بعدی/قبلی
+        function plusSlides(n) {
+            resetAutoSlide(); // اسلاید خودکار را ریست کن
+            showSlides(slideIndex += n);
+        }
+
+        // کنترل‌های نقطه
+        function currentSlide(n) {
+            resetAutoSlide(); // اسلاید خودکار را ریست کن
+            showSlides(slideIndex = n);
+        }
+
+        // ایجاد نقاط به صورت داینامیک بر اساس تعداد اسلایدها
+        function createDots() {
+            let slides = document.getElementsByClassName("mySlides");
+            let dotsContainer = document.getElementById("dotsContainer");
+            dotsContainer.innerHTML = ''; // پاک کردن نقاط قبلی
+            for (let i = 0; i < slides.length; i++) {
+                let dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.setAttribute('onclick', `currentSlide(${i + 1})`);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // اسلاید خودکار
+        function autoSlide() {
+            plusSlides(1); // برو به اسلاید بعدی
+        }
+
+        // ریست کردن اسلاید خودکار (هنگام کلیک کاربر)
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval); // اینتروال قبلی را پاک کن
+            autoSlideInterval = setInterval(autoSlide, 5000); // اینتروال جدید (هر 5 ثانیه)
+        }
+
+        // تابع برای ایجاد برگ‌های پاییزی
+        function createFallingLeaves() {
+            const body = document.body;
+            const numberOfLeaves = 12; // تعداد برگ‌ها
+            for (let i = 0; i < numberOfLeaves; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                // موقعیت شروع تصادفی
+                leaf.style.left = `${Math.random() * 100}vw`;
+                // تاخیر و سرعت تصادفی برای سقوط
+                leaf.style.animationDuration = `${Math.random() * 8 + 5}s`; // 5 تا 13 ثانیه
+                leaf.style.animationDelay = `${Math.random() * 0 - 6}s`; // تاخیر منفی برای شروع از ابتدا
+                leaf.style.transform = `scale(${Math.random() * 0.7 + 0.3})`; // اندازه تصادفی
+
+                // چرخیدن تصادفی
+                const randomRotateAmount = Math.random() * 360; // 0 to 360 degrees
+                leaf.style.animationName = `fall, sway`; // ترکیب انیمیشن سقوط و تاب خوردن
+                leaf.style.animationIterationCount = 'infinite';
+                leaf.style.animationTimingFunction = 'linear';
+                leaf.style.animationDirection = (Math.random() > 0.5 ? 'normal' : 'reverse'); // جهت چرخش تصادفی
+
+                body.appendChild(leaf);
+            }
+        }
+
+
+        // اجرای اولیه هنگام بارگذاری صفحه
+        document.addEventListener('DOMContentLoaded', (event) => {
+            createDots(); // ایجاد نقاط پس از بارگذاری DOM
+            showSlides(slideIndex); // نمایش اولین اسلاید
+            resetAutoSlide(); // شروع اسلاید خودکار
+            createFallingLeaves(); // شروع ریزش برگ‌ها
+        });
     </script>
 </body>
 </html>

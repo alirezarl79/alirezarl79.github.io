@@ -108,6 +108,25 @@ function createFallingLeaves() {
     }
 }
 
+// تابع برای به‌روزرسانی ساعت تهران
+function updateTehranClock() {
+    const now = new Date();
+    // تنظیم منطقه زمانی به تهران (Asia/Tehran)
+    const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false, // فرمت 24 ساعته
+        timeZone: 'Asia/Tehran'
+    };
+    const tehranTime = now.toLocaleTimeString('en-US', options); // از 'en-US' برای اطمینان از فرمت HH:MM:SS استفاده می‌کنیم
+
+    const clockElement = document.getElementById('tehran-clock');
+    if (clockElement) {
+        clockElement.textContent = `تهران: ${tehranTime}`;
+    }
+}
+
 
 // اجرای اولیه هنگام بارگذاری صفحه
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -115,4 +134,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     showSlides(slideIndex);
     resetAutoSlide();
     createFallingLeaves();
+    
+    // اجرای اولیه ساعت و سپس به‌روزرسانی هر ثانیه
+    updateTehranClock();
+    setInterval(updateTehranClock, 1000); // هر 1000 میلی‌ثانیه (1 ثانیه) به‌روزرسانی شود
 });

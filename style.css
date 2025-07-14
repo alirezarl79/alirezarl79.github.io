@@ -1,395 +1,51 @@
-body {
-    font-family: 'Vazirmatn', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #f0f4f8, #e0e6ec);
-    color: #343a40;
-    line-height: 1.8;
+/* ... کدهای CSS قبلی شما ... */
+
+/* استایل‌های جدید برای کادرهای نظرات */
+.comment-card {
+    background-color: #e6ffe6; /* سبز کم‌رنگ برای پس‌زمینه کادر نظر */
+    border: 1px solid #c8e6c9; /* حاشیه سبز ملایم */
+    border-radius: 12px; /* گوشه‌های گرد */
+    padding: 25px; /* پدینگ داخلی */
+    margin-bottom: 25px; /* فاصله بین کادرها */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* سایه نرم */
     text-align: right;
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.header {
-    background: linear-gradient(to right, #34495e, #2c3e50);
-    color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-    position: relative;
-    z-index: 2;
-}
-.header h1 {
-    margin: 0;
-    font-size: 3.5em;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-.container {
-    max-width: 1000px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    flex-grow: 1;
-    border: 1px solid #e9ecef;
-}
-p {
-    margin-bottom: 20px;
-    font-size: 1.15em;
-    line-height: 1.9;
-    color: #495057;
-    text-align: justify;
-}
-h2 {
-    color: #293c4b;
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 35px;
-    font-size: 2.8em;
-    font-weight: 700;
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(to right, #6D9773, #293c4b) 1;
-    padding-bottom: 15px;
-    display: inline-block;
 }
 
-.slideshow-container {
-    position: relative;
-    max-width: 850px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    margin-bottom: 60px;
-    border: 2px solid #e0e0e0;
-}
-.mySlides {
-    display: none;
-    width: 100%;
-    height: 550px;
-    object-fit: cover;
-    transition: opacity 0.8s ease-in-out;
-}
-.mySlides img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    padding: 22px 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 45px;
-    transition: 0.4s ease;
-    user-select: none;
-    background-color: rgba(0,0,0,0.75);
-    border: none;
-    outline: none;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-.next {
-    right: 0;
-    border-radius: 10px 0 0 10px;
-}
-.prev {
-    left: 0;
-    border-radius: 0 10px 10px 0;
-}
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.95);
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-.dots-container {
-    text-align: center;
-    padding: 30px 0 20px;
-    background-color: #f5f5f5;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-}
-.dot {
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    margin: 0 8px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.4s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-.active-dot, .dot:hover {
-    background-color: #6D9773;
-    transform: scale(1.3);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
-
-.leaf-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.leaf {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #d2691e;
-    border-radius: 50%;
-    opacity: 0;
-    animation: fall linear infinite, sway ease-in-out infinite alternate;
-    transform-origin: 50% 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10%) rotate(0deg) scale(1); opacity: 0; }
-    10% { opacity: 0.8; }
-    90% { opacity: 0.8; }
-    100% { transform: translateY(105vh) rotate(720deg) scale(0.8); opacity: 0; }
-}
-
-@keyframes sway {
-    0% { transform: translateX(0px) rotate(0deg); }
-    33% { transform: translateX(40px) rotate(120deg); }
-    66% { transform: translateX(-40px) rotate(240deg); }
-    100% { transform: translateX(0px) rotate(360deg); }
-}
-
-
-.info-section {
-    background-color: #fdfdfd;
-    padding: 40px;
-    border-radius: 15px;
-    margin-top: 60px;
+.comment-meta {
+    font-size: 1.15em; /* اندازه فونت نام و تاریخ بزرگتر */
+    font-weight: 700; /* نام پررنگ‌تر */
+    color: #388e3c; /* رنگ سبز تیره برای نام و تاریخ */
     text-align: right;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.03);
-    border: none;
+    margin-bottom: 15px; /* فاصله بین نام و متن نظر */
+    border-bottom: 1px dashed #a5d6a7; /* خط چین سبز ملایم زیر نام */
+    padding-bottom: 10px; /* پدینگ زیر خط چین */
 }
-.info-section h3 {
-    color: #293c4b;
-    font-size: 2em;
-    font-weight: 600;
-    margin-bottom: 30px;
-    text-align: center;
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 15px;
-    display: inline-block;
-}
-.info-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1.1em;
-    text-align: justify;
-    padding-right: 20px;
-}
-.info-section ul li {
-    margin-bottom: 18px;
-    padding-right: 40px;
-    position: relative;
-    line-height: 1.8;
-    color: #555;
-}
-.info-section ul li::before {
-    content: '✅';
-    color: #28a745;
-    position: absolute;
-    right: 0;
-    font-weight: bold;
-    font-size: 1.4em;
-    top: -3px;
-}
-.info-section ul li.rule::before {
-    content: '🚫';
-    color: #dc3545;
-    font-size: 1.4em;
-}
-.attention-note {
-    font-weight: bold;
-    color: #e67e22;
-    text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #fff3e0;
-    border-radius: 10px;
-    border: 2px dashed #ffa000;
-    font-size: 1.15em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.comment-meta strong {
+    color: #1b5e20; /* نام نظر دهنده با رنگ سبز تیره‌تر */
+    font-size: 1.05em; /* نام کمی بزرگتر از تاریخ */
 }
 
+.comment-text {
+    font-size: 1.1em; /* اندازه فونت متن نظر */
+    margin-bottom: 0;
+    color: #495057; /* رنگ متن نظر */
+    line-height: 1.8; /* فاصله خطوط */
+    font-style: normal; /* حذف ایتالیک اگر قبلاً بود */
+    text-align: justify; /* متن نظر به صورت توجیه */
+}
 
-.contact-info {
-    background-color: #eef7f8;
-    padding: 40px;
-    border-radius: 15px;
-    margin-top: 60px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
-    border: none;
-}
-.contact-info p {
-    margin: 15px 0;
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #0c5460;
-}
-.contact-buttons {
-    margin-top: 35px;
-}
-.contact-buttons a {
-    display: inline-block;
-    background-color: #6D9773;
-    color: white;
-    padding: 20px 40px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.4em;
-    border-radius: 12px;
-    margin: 0 20px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-.contact-buttons a.telegram {
-    background-color: #2A9FD8;
-}
-.contact-buttons a:hover {
-    background-color: #5F8B67;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-}
-.contact-buttons a.telegram:hover {
-    background-color: #2389C7;
-    transform: translateY(-4px);
-}
-.address {
-    font-style: normal;
-    color: #6c757d;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 1.2em;
-    line-height: 1.7;
-    padding: 0 20px;
-}
-.owner-name {
-    text-align: center;
-    margin-top: 60px;
-    font-weight: bold;
-    color: #495057;
-    font-size: 1.3em;
-    padding-top: 30px;
-    border-top: 2px dashed #dee2e6;
-}
-.footer {
-    text-align: center;
-    margin-top: 80px;
-    padding: 40px;
-    color: #90a0b0;
-    font-size: 1.1em;
-    background-color: #e0e6ec;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-}
+/* @media queries (رسپانسیو) هم در style.css قرار می‌گیرند */
 
 @media (max-width: 768px) {
-    .header {
-        padding: 40px 15px;
-    }
-    .header h1 {
-        font-size: 2.5em;
-    }
-    .container {
-        margin: 25px auto;
-        padding: 25px;
-        border-radius: 10px;
-    }
-    p {
-        font-size: 1.05em;
-        margin-bottom: 15px;
-    }
-    h2 {
-        font-size: 2em;
-        margin-top: 40px;
-        margin-bottom: 25px;
-    }
-    .slideshow-container {
-        height: auto;
-        border-radius: 12px;
-        margin-bottom: 40px;
-    }
-    .mySlides {
-         height: 350px;
-    }
-    .prev, .next {
-        font-size: 32px;
-        padding: 15px 10px;
-    }
-    .dot {
-        height: 16px;
-        width: 16px;
-        margin: 0 4px;
-    }
-    .info-section {
-        padding: 25px;
-        border-radius: 10px;
-        margin-top: 40px;
-    }
-    .info-section h3 {
-        font-size: 1.6em;
+    .comment-card {
+        padding: 18px;
         margin-bottom: 20px;
     }
-    .info-section ul li {
-        font-size: 1em;
-        margin-bottom: 12px;
-        padding-right: 30px;
-    }
-    .info-section ul li::before, .info-section ul li.rule::before {
-        font-size: 1.2em;
-    }
-    .attention-note {
-        padding: 15px;
+    .comment-meta {
         font-size: 1.05em;
+        margin-bottom: 10px;
     }
-    .contact-info {
-        padding: 30px;
-        margin-top: 40px;
-    }
-    .contact-info p {
-        font-size: 1.2em;
-    }
-    .contact-buttons a {
-        padding: 15px 25px;
-        font-size: 1.2em;
-        margin: 0 8px;
-        border-radius: 8px;
-    }
-    .address, .owner-name, .footer p {
-        font-size: 0.95em;
-    }
-    .footer {
-        margin-top: 50px;
-        padding: 30px;
+    .comment-text {
+        font-size: 1em;
     }
 }

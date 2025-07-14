@@ -7,13 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="leaf-container">
-        </div>
+    <div class="leaf-container"></div>
 
     <div class="header">
         <h1>به اقامتگاه عمو حسین خوش آمدید!</h1>
@@ -26,36 +24,35 @@
         <h2>گالری تصاویر اقامتگاه</h2>
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <a href="(2).jpg" data-lity><img src="(2).jpg" alt="نمای گسترده تراس و چشم‌انداز کوهستانی"></a>
+                <a href="(2).jpg" data-lity data-lity-group="gallery"><img src="(2).jpg" alt="نمای گسترده تراس و چشم‌انداز کوهستانی"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(1).jpg" data-lity><img src="(1).jpg" alt="نمایی نزدیک‌تر از تراس با پرده آبی"></a>
+                <a href="(1).jpg" data-lity data-lity-group="gallery"><img src="(1).jpg" alt="نمایی نزدیک‌تر از تراس با پرده آبی"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(5).jpg" data-lity><img src="(5).jpg" alt="فضای آشپزخانه با کابینت‌ها و یخچال"></a>
+                <a href="(5).jpg" data-lity data-lity-group="gallery"><img src="(5).jpg" alt="فضای آشپزخانه با کابینت‌ها و یخچال"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(8).jpg" data-lity><img src="(8).jpg" alt="سالن نشیمن با مبلمان، فرش و پنکه"></a>
+                <a href="(8).jpg" data-lity data-lity-group="gallery"><img src="(8).jpg" alt="سالن نشیمن با مبلمان، فرش و پنکه"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(9).jpg" data-lity><img src="(9).jpg" alt="نمایی دیگر از سالن نشیمن و درب ورودی"></a>
+                <a href="(9).jpg" data-lity data-lity-group="gallery"><img src="(9).jpg" alt="نمایی دیگر از سالن نشیمن و درب ورودی"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(10).jpg" data-lity><img src="(10).jpg" alt="سالن نشیمن با فرش، پنکه و بخاری هیزمی"></a>
+                <a href="(10).jpg" data-lity data-lity-group="gallery"><img src="(10).jpg" alt="سالن نشیمن با فرش، پنکه و بخاری هیزمی"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(12).jpg" data-lity><img src="(12).jpg" alt="گوشه‌ای از سالن نشیمن با بخاری و کوسن‌ها"></a>
+                <a href="(12).jpg" data-lity data-lity-group="gallery"><img src="(12).jpg" alt="گوشه‌ای از سالن نشیمن با بخاری و کوسن‌ها"></a>
             </div>
             <div class="mySlides fade">
-                <a href="(14).jpg" data-lity><img src="(14).jpg" alt="اتاق خواب با تخت دو نفره و لوازم خواب"></a>
+                <a href="(14).jpg" data-lity data-lity-group="gallery"><img src="(14).jpg" alt="اتاق خواب با تخت دو نفره و لوازم خواب"></a>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
-        <div class="dots-container" id="dotsContainer">
-            </div>
+        <div class="dots-container" id="dotsContainer"></div>
 
         <div class="info-section">
             <h3>درباره اقامتگاه عمو حسین</h3>
@@ -86,6 +83,50 @@
             </ul>
         </div>
 
+        <div class="info-section comment-form-section">
+            <h2>ثبت نظر مهمانان</h2>
+            <p>تجربه خود را از اقامت در اقامتگاه عمو حسین با ما و دیگر مهمانان به اشتراک بگذارید.</p>
+            <form action="https://formspree.io/f/mkgzwpyy" method="POST" class="comment-form">
+                <div class="form-group">
+                    <label for="name">نام:</label>
+                    <input type="text" id="name" name="نام" required>
+                </div>
+                <div class="form-group">
+                    <label for="family-name">نام خانوادگی:</label>
+                    <input type="text" id="family-name" name="نام خانوادگی" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">شماره تماس (اختیاری):</label>
+                    <input type="tel" id="phone" name="شماره تماس">
+                </div>
+                <div class="form-group">
+                    <label for="comment">نظر شما:</label>
+                    <textarea id="comment" name="نظر" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">ارسال نظر</button>
+            </form>
+            <p class="form-note">**توجه: نظرات ارسالی به صورت خودکار در سایت نمایش داده نمی‌شوند و نیاز به تایید میزبان دارند.**</p>
+        </div>
+
+        <div class="info-section comments-display-section">
+            <h2>نظرات میهمانان</h2>
+            <p>در اینجا می‌توانید نظراتی را که مهمانان قبلی به صورت دستی توسط شما اضافه شده‌اند، مشاهده کنید:</p>
+
+            <div class="comment-card">
+                <p class="comment-text">"اقامتی بسیار آرامش‌بخش با چشم‌اندازی فوق‌العاده. حتماً دوباره میایم!"</p>
+                <p class="comment-meta">**علی محمدی** - تیر ۱۴۰۳</p>
+            </div>
+
+            <div class="comment-card">
+                <p class="comment-text">"فضایی دنج و تمیز با امکانات کامل. از میزبانی گرم عمو حسین سپاسگزاریم."</p>
+                <p class="comment-meta">**خانواده حسینی** - مرداد ۱۴۰۳</p>
+            </div>
+
+            <div class="comment-card">
+                <p class="comment-text">"مسیر دسترسی کمی خاکی بود اما منظره و آرامش اینجا بی‌نظیر بود. ارزشش رو داشت!"</p>
+                <p class="comment-meta">**فاطمه کریمی** - شهریور ۱۴۰۳</p>
+            </div>
+        </div>
 
         <h2>اطلاعات تماس و رزرو</h2>
         <div class="contact-info">

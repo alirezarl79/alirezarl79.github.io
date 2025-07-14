@@ -7,6 +7,12 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dotsContainer = document.getElementById("dotsContainer");
+    
+    if (!dotsContainer) { // اگر کانتینر نقاط وجود ندارد، فقط اسلاید را نمایش بده
+        if (slides.length > 0) slides[slideIndex-1].style.display = "block";
+        return;
+    }
+
     let dots = dotsContainer.getElementsByClassName("dot");
 
     if (n > slides.length) {slideIndex = 1}
@@ -15,11 +21,15 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active-dot", "");
+    if (dots.length > 0) { // اگر نقاطی برای مدیریت وجود دارند
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active-dot";
+    } else { // اگر نقاطی نیست فقط اسلاید رو نمایش بده
+        slides[slideIndex-1].style.display = "block";
     }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active-dot";
 }
 
 // کنترل‌های بعدی/قبلی
@@ -38,6 +48,8 @@ function currentSlide(n) {
 function createDots() {
     let slides = document.getElementsByClassName("mySlides");
     let dotsContainer = document.getElementById("dotsContainer");
+    if (!dotsContainer) return; // اگر کانتینر نقاط وجود ندارد، خارج شو
+
     dotsContainer.innerHTML = ''; // پاک کردن نقاط قبلی
     for (let i = 0; i < slides.length; i++) {
         let dot = document.createElement('span');
@@ -60,32 +72,35 @@ function resetAutoSlide() {
 
 // تابع برای ایجاد برگ‌های پاییزی
 function createFallingLeaves() {
-    const leafContainer = document.querySelector('.leaf-container'); // از کانتینر برگ‌ها استفاده کن
-    const numberOfLeaves = 12; // تعداد برگ‌ها
+    const leafContainer = document.querySelector('.leaf-container');
+    if (!leafContainer) return;
+
+    const numberOfLeaves = 20; // تعداد برگ‌ها
     const leafShapes = [
         'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', // الماس
         'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)', // شش ضلعی
         'circle(50% at 50% 50%)', // دایره
-        'polygon(0% 15%, 15% 0%, 100% 0%, 85% 15%, 100% 50%, 85% 85%, 100% 100%, 15% 100%, 0% 85%, 15% 50%)' // ستاره
+        'polygon(0% 15%, 15% 0%, 100% 0%, 85% 15%, 100% 50%, 85% 85%, 100% 100%, 15% 100%, 0% 85%, 15% 50%)', // ستاره
+        'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' // ستاره پنج‌پر
     ];
     const leafColors = [
         '#d2691e', // نارنجی پاییزی
         '#b8860b', // زرد مایل به قهوه‌ای
         '#a0522d', // قهوه‌ای
         '#8b0000', // قرمز تیره
-        '#f4a460'  // نارنجی روشن‌تر
+        '#f4a460',  // نارنجی روشن‌تر
+        '#cc6600' // نارنجی تیره
     ];
 
     for (let i = 0; i < numberOfLeaves; i++) {
         const leaf = document.createElement('div');
         leaf.className = 'leaf';
 
-        leaf.style.left = `${Math.random() * 100}vw`; // موقعیت شروع تصادفی افقی
-        leaf.style.animationDuration = `${Math.random() * 8 + 5}s`; // 5 تا 13 ثانیه برای سقوط
-        leaf.style.animationDelay = `${Math.random() * -6}s`; // تاخیر منفی برای شروع از ابتدا (همه با هم شروع نشوند)
-        leaf.style.transform = `scale(${Math.random() * 0.7 + 0.3})`; // اندازه تصادفی
+        leaf.style.left = `${Math.random() * 100}vw`;
+        leaf.style.animationDuration = `${Math.random() * 10 + 6}s`;
+        leaf.style.animationDelay = `${Math.random() * -15}s`;
+        leaf.style.transform = `scale(${Math.random() * 0.7 + 0.3})`;
 
-        // انتخاب تصادفی شکل و رنگ
         leaf.style.clipPath = leafShapes[Math.floor(Math.random() * leafShapes.length)];
         leaf.style.backgroundColor = leafColors[Math.floor(Math.random() * leafColors.length)];
 
@@ -96,8 +111,8 @@ function createFallingLeaves() {
 
 // اجرای اولیه هنگام بارگذاری صفحه
 document.addEventListener('DOMContentLoaded', (event) => {
-    createDots(); // ایجاد نقاط پس از بارگذاری DOM
-    showSlides(slideIndex); // نمایش اولین اسلاید
-    resetAutoSlide(); // شروع اسلاید خودکار
-    createFallingLeaves(); // شروع ریزش برگ‌ها
+    createDots();
+    showSlides(slideIndex);
+    resetAutoSlide();
+    createFallingLeaves();
 });

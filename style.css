@@ -2,70 +2,80 @@ body {
     font-family: 'Vazirmatn', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* رنگ پس‌زمینه روشن‌تر و مدرن‌تر */
-    color: #343a40; /* رنگ متن تیره */
+    background: linear-gradient(to bottom, #f0f4f8, #e0e6ec);
+    color: #343a40;
     line-height: 1.8;
     text-align: right;
-    overflow-x: hidden; /* جلوگیری از اسکرول افقی اضافی */
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .header {
-    background-color: #293c4b; /* آبی تیره/خاکستری */
+    background: linear-gradient(to right, #34495e, #2c3e50);
     color: #fff;
-    padding: 50px 20px; /* پدینگ بیشتر برای هدر */
+    padding: 60px 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* سایه واضح‌تر */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 2;
 }
 .header h1 {
     margin: 0;
-    font-size: 3em; /* بزرگ‌تر */
-    font-weight: 700;
-    letter-spacing: 2px; /* فاصله بیشتر بین حروف */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* سایه متن برای برجسته‌تر شدن */
+    font-size: 3.5em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 .container {
-    max-width: 950px; /* عرض بیشتر برای محتوا */
-    margin: 40px auto; /* مارجین بیشتر */
-    background-color: #fff;
-    padding: 40px; /* پدینگ بیشتر */
-    border-radius: 12px; /* گوشه‌های گردتر */
-    box-shadow: 0 0 25px rgba(0,0,0,0.18); /* سایه کمی عمیق‌تر */
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
     text-align: center;
     position: relative;
     z-index: 1;
-    border: 1px solid #e9ecef; /* حاشیه ملایم */
+    flex-grow: 1;
+    border: 1px solid #e9ecef;
 }
 p {
-    margin-bottom: 18px; /* مارجین بیشتر برای پاراگراف‌ها */
-    font-size: 1.15em; /* کمی بزرگتر */
+    margin-bottom: 20px;
+    font-size: 1.15em;
+    line-height: 1.9;
+    color: #495057;
+    text-align: justify;
 }
 h2 {
-    color: #293c4b; /* همرنگ با هدر */
+    color: #293c4b;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    font-size: 2.4em; /* تیترهای بزرگتر */
-    border-bottom: 3px solid #e0e0e0; /* خط زیر تیتر ضخیم‌تر */
-    padding-bottom: 12px;
-    display: inline-block;
+    margin-top: 60px;
+    margin-bottom: 35px;
+    font-size: 2.8em;
     font-weight: 700;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, #6D9773, #293c4b) 1;
+    padding-bottom: 15px;
+    display: inline-block;
 }
 
-/* استایل‌های اسلایدشو - بهبود موقعیت دکمه‌ها و ظاهر کلی */
 .slideshow-container {
     position: relative;
-    max-width: 800px; /* عرض بیشتر */
+    max-width: 850px;
     margin: auto;
     overflow: hidden;
-    border-radius: 15px; /* گردتر */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* سایه قوی‌تر */
-    margin-bottom: 50px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    margin-bottom: 60px;
+    border: 2px solid #e0e0e0;
 }
 .mySlides {
     display: none;
     width: 100%;
-    height: 500px; /* ارتفاع بیشتر */
+    height: 550px;
     object-fit: cover;
-    transition: opacity 0.7s ease-in-out; /* انیمیشن نرم‌تر */
+    transition: opacity 0.8s ease-in-out;
 }
 .mySlides img {
     width: 100%;
@@ -73,60 +83,61 @@ h2 {
     object-fit: cover;
     display: block;
 }
-/* دکمه‌های بعدی/قبلی - موقعیت و ظاهر بهتر */
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: auto;
-    padding: 20px 14px; /* پدینگ بیشتر */
+    padding: 22px 16px;
     color: white;
     font-weight: bold;
-    font-size: 40px; /* بزرگتر */
-    transition: 0.4s ease; /* انیمیشن سریع‌تر */
+    font-size: 45px;
+    transition: 0.4s ease;
     user-select: none;
-    background-color: rgba(0,0,0,0.65); /* تیره‌تر و شفاف‌تر */
+    background-color: rgba(0,0,0,0.75);
     border: none;
     outline: none;
     z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 .next {
     right: 0;
-    border-radius: 8px 0 0 8px; /* گوشه‌های گرد در یک سمت */
+    border-radius: 10px 0 0 10px;
 }
 .prev {
     left: 0;
-    border-radius: 0 8px 8px 0; /* گوشه‌های گرد در سمت دیگر */
+    border-radius: 0 10px 10px 0;
 }
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.9); /* بسیار تیره‌تر هنگام هاور */
-    transform: translateY(-50%) scale(1.05); /* کمی بزرگتر شدن */
+    background-color: rgba(0,0,0,0.95);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
-/* نقاط نشانگر اسلاید */
 .dots-container {
     text-align: center;
-    padding: 25px 0 15px; /* پدینگ بیشتر */
-    background-color: #f0f0f0;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    padding: 30px 0 20px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
 }
 .dot {
     cursor: pointer;
-    height: 18px; /* بزرگتر */
-    width: 18px; /* بزرگتر */
-    margin: 0 6px; /* فاصله بیشتر */
+    height: 20px;
+    width: 20px;
+    margin: 0 8px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.4s ease, transform 0.3s ease; /* انیمیشن سریع‌تر و تغییر اندازه */
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 .active-dot, .dot:hover {
-    background-color: #717171;
-    transform: scale(1.2); /* بزرگتر شدن نقطه */
+    background-color: #6D9773;
+    transform: scale(1.3);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-/* Falling Leaves Effect */
 .leaf-container {
     position: fixed;
     top: 0;
@@ -135,73 +146,53 @@ h2 {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
 }
 
 .leaf {
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: #d2691e; /* رنگ پاییزی */
-    border-radius: 50%; /* برای شکل برگ */
+    background-color: #d2691e;
+    border-radius: 50%;
     opacity: 0;
     animation: fall linear infinite, sway ease-in-out infinite alternate;
     transform-origin: 50% 50%;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* شکل الماس */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* تنوع در رنگ‌ها و شکل‌های برگ */
-.leaf:nth-child(2n) { background-color: #b8860b; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); } /* شش ضلعی */
-.leaf:nth-child(3n) { background-color: #a0522d; border-radius: 40% 60% 70% 30% / 50% 50% 50% 50%; clip-path: circle(50% at 50% 50%); } /* دایره */
-.leaf:nth-child(4n) { background-color: #8b0000; width: 25px; height: 25px; clip-path: polygon(0% 15%, 15% 0%, 100% 0%, 85% 15%, 100% 50%, 85% 85%, 100% 100%, 15% 100%, 0% 85%, 15% 50%); } /* ستاره */
-
-
-/* Keyframe Animations */
 @keyframes fall {
-    0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.7; }
-    90% { opacity: 0.7; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    0% { transform: translateY(-10%) rotate(0deg) scale(1); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(105vh) rotate(720deg) scale(0.8); opacity: 0; }
 }
 
 @keyframes sway {
     0% { transform: translateX(0px) rotate(0deg); }
-    33% { transform: translateX(30px) rotate(120deg); }
-    66% { transform: translateX(-30px) rotate(240deg); }
+    33% { transform: translateX(40px) rotate(120deg); }
+    66% { transform: translateX(-40px) rotate(240deg); }
     100% { transform: translateX(0px) rotate(360deg); }
 }
 
-/* تنظیمات انیمیشن برای هر برگ (برای تنوع) */
-.leaf:nth-child(1) { left: 10%; animation-duration: 10s, 3s; animation-delay: 0s, 0s; }
-.leaf:nth-child(2) { left: 20%; animation-duration: 12s, 4s; animation-delay: 2s, 1s; }
-.leaf:nth-child(3) { left: 30%; animation-duration: 9s, 2.5s; animation-delay: 1s, 0.5s; }
-.leaf:nth-child(4) { left: 40%; animation-duration: 11s, 3.5s; animation-delay: 3s, 1.5s; }
-.leaf:nth-child(5) { left: 50%; animation-duration: 8s, 2s; animation-delay: 0.5s, 0s; }
-.leaf:nth-child(6) { left: 60%; animation-duration: 13s, 4.5s; animation-delay: 4s, 2s; }
-.leaf:nth-child(7) { left: 70%; animation-duration: 10s, 3s; animation-delay: 1.5s, 0.8s; }
-.leaf:nth-child(8) { left: 80%; animation-duration: 11.5s, 3.2s; animation-delay: 2.5s, 1.2s; }
-.leaf:nth-child(9) { left: 90%; animation-duration: 9.5s, 2.8s; animation-delay: 0s, 0.3s; }
-.leaf:nth-child(10) { left: 5%; animation-duration: 14s, 3.8s; animation-delay: 5s, 2.5s; }
-.leaf:nth-child(11) { left: 15%; animation-duration: 10s, 2.9s; animation-delay: 0.8s, 0.2s; }
-.leaf:nth-child(12) { left: 25%; animation-duration: 12s, 3.7s; animation-delay: 3.5s, 1.8s; }
-
 
 .info-section {
-    background-color: #fcfcfc; /* رنگ پس زمینه روشن‌تر */
-    padding: 30px; /* پدینگ بیشتر */
-    border-radius: 12px;
-    margin-top: 50px; /* مارجین بیشتر */
+    background-color: #fdfdfd;
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 60px;
     text-align: right;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* سایه کمی قوی‌تر */
-    border: 1px solid #e0e0e0; /* حاشیه ملایم */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.03);
+    border: none;
 }
 .info-section h3 {
-    color: #293c4b; /* همرنگ با تیتر اصلی */
-    font-size: 1.8em;
-    margin-bottom: 25px;
+    color: #293c4b;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 30px;
     text-align: center;
-    border-bottom: 2px solid #e9ecef; /* خط زیر تیتر */
-    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 15px;
     display: inline-block;
 }
 .info-section ul {
@@ -209,176 +200,196 @@ h2 {
     padding: 0;
     margin: 0;
     font-size: 1.1em;
-    text-align: justify; /* توجیه متن لیست */
-    padding-right: 25px; /* فاصله برای آیکون */
+    text-align: justify;
+    padding-right: 20px;
 }
 .info-section ul li {
-    margin-bottom: 15px;
-    padding-right: 35px; /* فضای بیشتر برای آیکون */
+    margin-bottom: 18px;
+    padding-right: 40px;
     position: relative;
-    line-height: 1.7;
+    line-height: 1.8;
+    color: #555;
 }
 .info-section ul li::before {
-    content: '✅'; /* آیکون تیک سبز */
+    content: '✅';
     color: #28a745;
     position: absolute;
     right: 0;
     font-weight: bold;
-    font-size: 1.3em;
-    top: -2px; /* تنظیم موقعیت عمودی آیکون */
+    font-size: 1.4em;
+    top: -3px;
 }
 .info-section ul li.rule::before {
-    content: '🚫'; /* آیکون ممنوعیت */
+    content: '🚫';
     color: #dc3545;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
-.attention-note { /* استایل برای پاراگراف توجه */
+.attention-note {
     font-weight: bold;
-    color: #e74c3c;
+    color: #e67e22;
     text-align: center;
-    margin-top: 25px;
-    padding: 15px;
-    background-color: #ffe0b2; /* پس زمینه نارنجی روشن */
-    border-radius: 8px;
-    border: 1px dashed #ff9800;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff3e0;
+    border-radius: 10px;
+    border: 2px dashed #ffa000;
+    font-size: 1.15em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 
 .contact-info {
-    background-color: #d1ecf1; /* آبی روشن‌تر */
-    padding: 35px; /* پدینگ بیشتر */
-    border-radius: 12px;
-    margin-top: 50px;
+    background-color: #eef7f8;
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 60px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 1px solid #bee5eb;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+    border: none;
 }
 .contact-info p {
-    margin: 10px 0;
-    font-size: 1.3em;
+    margin: 15px 0;
+    font-size: 1.4em;
     font-weight: bold;
-    color: #0c5460; /* آبی تیره */
+    color: #0c5460;
 }
 .contact-buttons {
-    margin-top: 30px;
+    margin-top: 35px;
 }
 .contact-buttons a {
     display: inline-block;
-    background-color: #28a745; /* سبز پررنگ */
+    background-color: #6D9773;
     color: white;
-    padding: 18px 35px; /* پدینگ بیشتر برای دکمه‌ها */
+    padding: 20px 40px;
     text-align: center;
     text-decoration: none;
-    font-size: 1.3em;
-    border-radius: 10px; /* گوشه‌های گردتر */
-    margin: 0 15px; /* فاصله بیشتر */
+    font-size: 1.4em;
+    border-radius: 12px;
+    margin: 0 20px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     font-weight: bold;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2); /* سایه برجسته */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 .contact-buttons a.telegram {
-    background-color: #007bff; /* آبی بوت‌استرپ */
+    background-color: #2A9FD8;
 }
 .contact-buttons a:hover {
-    background-color: #218838;
-    transform: translateY(-3px); /* بیشتر بالا رفتن */
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    background-color: #5F8B67;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
 }
 .contact-buttons a.telegram:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
+    background-color: #2389C7;
+    transform: translateY(-4px);
 }
 .address {
     font-style: normal;
-    color: #6c757d; /* خاکستری تیره */
+    color: #6c757d;
     text-align: center;
-    margin-top: 35px;
-    font-size: 1.15em;
-    line-height: 1.6;
+    margin-top: 40px;
+    font-size: 1.2em;
+    line-height: 1.7;
+    padding: 0 20px;
 }
 .owner-name {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 60px;
     font-weight: bold;
-    color: #495057; /* خاکستری مایل به تیره */
-    font-size: 1.25em;
-    padding-top: 25px;
-    border-top: 1px dashed #ced4da; /* خط چین ملایم‌تر */
+    color: #495057;
+    font-size: 1.3em;
+    padding-top: 30px;
+    border-top: 2px dashed #dee2e6;
 }
 .footer {
     text-align: center;
-    margin-top: 70px; /* مارجین بیشتر */
-    padding: 30px; /* پدینگ بیشتر */
-    color: #adb5bd; /* خاکستری روشن */
-    font-size: 1em;
-    background-color: #e9ecef; /* پس زمینه روشن‌تر */
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    box-shadow: 0 -3px 15px rgba(0,0,0,0.08);
+    margin-top: 80px;
+    padding: 40px;
+    color: #90a0b0;
+    font-size: 1.1em;
+    background-color: #e0e6ec;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
 }
 
-/* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
+    .header {
+        padding: 40px 15px;
+    }
     .header h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
     }
     .container {
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 8px;
+        margin: 25px auto;
+        padding: 25px;
+        border-radius: 10px;
+    }
+    p {
+        font-size: 1.05em;
+        margin-bottom: 15px;
     }
     h2 {
-        font-size: 1.8em;
-        margin-top: 30px;
-        margin-bottom: 20px;
+        font-size: 2em;
+        margin-top: 40px;
+        margin-bottom: 25px;
     }
     .slideshow-container {
         height: auto;
-        border-radius: 10px;
+        border-radius: 12px;
+        margin-bottom: 40px;
     }
     .mySlides {
-         height: 280px; /* ارتفاع کمتر برای موبایل */
+         height: 350px;
     }
     .prev, .next {
-        font-size: 28px;
-        padding: 10px 6px;
+        font-size: 32px;
+        padding: 15px 10px;
     }
     .dot {
-        height: 14px;
-        width: 14px;
+        height: 16px;
+        width: 16px;
+        margin: 0 4px;
     }
     .info-section {
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 30px;
+        padding: 25px;
+        border-radius: 10px;
+        margin-top: 40px;
     }
     .info-section h3 {
-        font-size: 1.4em;
-        margin-bottom: 15px;
+        font-size: 1.6em;
+        margin-bottom: 20px;
     }
     .info-section ul li {
         font-size: 1em;
-        margin-bottom: 10px;
-        padding-right: 25px;
+        margin-bottom: 12px;
+        padding-right: 30px;
     }
     .info-section ul li::before, .info-section ul li.rule::before {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
-    .contact-buttons a {
-        padding: 12px 20px;
-        font-size: 1.1em;
-        margin: 0 8px;
-        border-radius: 6px;
+    .attention-note {
+        padding: 15px;
+        font-size: 1.05em;
     }
     .contact-info {
-        padding: 25px;
-        margin-top: 35px;
+        padding: 30px;
+        margin-top: 40px;
+    }
+    .contact-info p {
+        font-size: 1.2em;
+    }
+    .contact-buttons a {
+        padding: 15px 25px;
+        font-size: 1.2em;
+        margin: 0 8px;
+        border-radius: 8px;
     }
     .address, .owner-name, .footer p {
         font-size: 0.95em;
     }
     .footer {
-        margin-top: 40px;
-        padding: 20px;
+        margin-top: 50px;
+        padding: 30px;
     }
 }

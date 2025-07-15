@@ -389,6 +389,34 @@ h2 {
     direction: ltr; /* برای نمایش صحیح اعداد و دو نقطه */
 }
 
+/* استایل برای بخش نقشه */
+.map-container {
+    margin-top: 60px;
+    background-color: #fdfdfd;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.03);
+    text-align: center;
+}
+
+.map-container h3 {
+    color: #293c4b;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 100%; /* مطمئن شوید که در موبایل هم تمام عرض را بگیرد */
+    height: 450px; /* ارتفاع ثابت برای نقشه */
+}
+
 
 @media (max-width: 768px) {
     .header {
@@ -480,5 +508,13 @@ h2 {
         right: 10px;
         padding: 8px 12px;
         font-size: 1.1em;
+    }
+    /* استایل برای نقشه در موبایل */
+    .map-container {
+        padding: 25px;
+        margin-top: 40px;
+    }
+    .map-container iframe {
+        height: 300px; /* ارتفاع کمتر برای موبایل */
     }
 }
